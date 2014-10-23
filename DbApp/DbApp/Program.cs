@@ -4,6 +4,13 @@ namespace DbApp
 {
     class Program
     {
+        private readonly StudentsRepo _repo;
+
+        public Program(StudentsRepo repo)
+        {
+            _repo = repo;
+        }
+
         static void Main()
         {
             Console.WriteLine("Input first name:");
@@ -13,10 +20,14 @@ namespace DbApp
             var secondName = Console.ReadLine();
 
             Console.WriteLine("Choose your faculty:");
-            var facultyId = Console.ReadLine();
+            int facultyId;
+            Int32.TryParse(Console.ReadLine(), out facultyId);
 
             Console.WriteLine("Input overal mark:");
-            var overalMark = Console.ReadLine();
+            decimal overalMark;
+            decimal.TryParse(Console.ReadLine(), out overalMark);
+
+
 
             Console.WriteLine("Hello " + firstName + secondName);
             Console.WriteLine("Your faculty is " + facultyId);
@@ -24,15 +35,5 @@ namespace DbApp
 
             Console.ReadKey();
         }
-    }
-
-    public class StudentsRepo
-    {
-        
-    }
-
-    public class StudentsDto
-    {
-        
     }
 }

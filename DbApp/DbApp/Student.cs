@@ -7,11 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace DbApp
 {
     using System;
     using System.Collections.Generic;
     
+    [Table("Students")]
     public partial class Student
     {
         public int StudentId { get; set; }

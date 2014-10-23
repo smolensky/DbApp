@@ -73,6 +73,8 @@
     <Compile Include="Student.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="StudentsDto.cs" />
+    <Compile Include="StudentsRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
