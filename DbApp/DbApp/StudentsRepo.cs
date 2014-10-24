@@ -33,7 +33,7 @@ namespace DbApp
 
                 foreach (var item in query)
                 {
-                    Console.WriteLine(item.FirstName + " " + 
+                    Console.WriteLine(item.FirstName + " " +        //TODO
                                       item.SecondName + "\n" +
                                       item.FacultyId + "\n" +
                                       item.OveralMark + "\n\n");
