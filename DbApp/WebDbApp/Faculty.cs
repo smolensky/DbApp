@@ -7,22 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace DbApp
+namespace WebDbApp
 {
     using System;
     using System.Collections.Generic;
     
-    [Table("Students")]
-    public partial class Student
+    public partial class Faculty
     {
-        public int StudentId { get; set; }
-        public string FirstName { get; set; }
-        public string SecondName { get; set; }
-        public int FacultyId { get; set; }
-        public decimal OveralMark { get; set; }
+        public Faculty()
+        {
+            this.Students = new HashSet<Student>();
+        }
     
-        public virtual Faculty Faculty { get; set; }
+        public int FacultyId { get; set; }
+        public string FacultyName { get; set; }
+    
+        public virtual Faculty Faculty1 { get; set; }
+        public virtual Faculty Faculty2 { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿using System;
-using Microsoft.Practices.Unity;
+using StudentsCore;
 
 namespace DbApp
 {
@@ -7,9 +7,6 @@ namespace DbApp
     {
         private static void Main()
         {
-            var container = new UnityContainer();
-            var t = container.Resolve<SomeClass>();
-
             Console.WriteLine("Type 1 and press enter to input new student\n" +
                               "Type 2 and press enter to show existing students\n");
             switch (Console.ReadLine())
@@ -48,7 +45,13 @@ namespace DbApp
                     var repo = new StudentsRepo();
 
                     Console.WriteLine("Showing table:");
-                    repo.Load();
+                    foreach (StudentsDto student in repo.Load())
+                    {
+                        Console.WriteLine("\n" + student.FirstName);
+                        Console.WriteLine(student.SecondName);
+                        Console.WriteLine(student.FacultyId);
+                        Console.WriteLine(student.OveralMark);
+                    }
                     
                     Main();
                 }
@@ -60,17 +63,5 @@ namespace DbApp
                     break;
             }
         }
-    }
-
-    public class SomeClass
-    {
-        private readonly StudentsRepo _repo;
-
-        public SomeClass(StudentsRepo repo)
-        {
-            _repo = repo;
-        }
-
-
     }
 }

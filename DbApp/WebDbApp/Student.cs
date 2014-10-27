@@ -7,23 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DbApp
+namespace WebDbApp
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Faculty
+    public partial class Student
     {
-        public Faculty()
-        {
-            this.Students = new HashSet<Student>();
-        }
-    
+        public int StudentId { get; set; }
+        public string FirstName { get; set; }
+        public string SecondName { get; set; }
         public int FacultyId { get; set; }
-        public string FacultyName { get; set; }
+        public decimal OveralMark { get; set; }
     
-        public virtual Faculty Faculty1 { get; set; }
-        public virtual Faculty Faculty2 { get; set; }
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual Faculty Faculty { get; set; }
     }
 }

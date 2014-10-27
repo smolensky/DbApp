@@ -1,0 +1,53 @@
+﻿@using StudentsCore
+@model WebDbApp.Models.StudentsModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+    <body>
+        <div>
+            @using (Html.BeginForm())
+            {
+                <div>
+                    <label>Input first name</label>
+                    @Html.TextBoxFor(x => x.FirstName)
+                </div>
+                <div>
+                    <label>Input second name</label>
+                    @Html.TextBoxFor(x => x.SecondName)
+                </div>
+                <div>
+                    <label>Input faculty</label>
+                    @Html.TextBoxFor(x => x.FacultyId)
+                </div>
+                <div>
+                    <label>Input overal mark</label>
+                    @Html.TextBoxFor(x => x.OveralMark)
+                </div>
+                <input type="submit" value="Save" />
+
+            }
+        </div>
+        <div>
+            <table style="width:100%;">
+                @foreach (StudentsDto record in ViewBag.Students)
+                {
+                    <tr>
+                        <td>@record.FirstName</td>
+                        <td>@record.SecondName</td>
+                        <td>@record.FacultyId</td>
+                        <td>@record.OveralMark</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </body>
+</html>

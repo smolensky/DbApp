@@ -1,4 +1,4 @@
-﻿namespace DbApp
+﻿namespace StudentsCore
 {
     public class StudentsDto
     {

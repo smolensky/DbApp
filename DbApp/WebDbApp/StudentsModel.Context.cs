@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DbApp
+namespace WebDbApp
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class StudentDbContext : DbContext
+    public partial class StudentDbEntities : DbContext
     {
-        public StudentDbContext()
-            : base("name=StudentDbContext")
+        public StudentDbEntities()
+            : base("name=StudentDbEntities")
         {
         }
     
