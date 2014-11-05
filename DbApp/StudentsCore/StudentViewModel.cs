@@ -1,8 +1,8 @@
 ﻿namespace StudentsCore
 {
-    public class StudentsDto
+    public class StudentViewModel
     {
-        public StudentsDto(string firstName, string secondName, int facultyId, decimal overalMark)
+        public StudentViewModel(string firstName, string secondName, int facultyId, decimal overalMark)
         {
             OveralMark = overalMark;
             FacultyId = facultyId;
