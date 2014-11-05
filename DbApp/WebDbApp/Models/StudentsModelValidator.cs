@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using StudentsCore;
+using StudentCore;
 
 namespace WebDbApp.Models
 {

@@ -173,16 +173,16 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StudentsCore\StudentsCore.csproj">
-      <Project>{5B744326-604D-4C16-981E-911DD890F853}</Project>
-      <Name>StudentsCore</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudentCore\StudentsCore.csproj">
+      <Project>{B2536C11-8131-476F-A53B-5C8F6CB883BC}</Project>
+      <Name>StudentsCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

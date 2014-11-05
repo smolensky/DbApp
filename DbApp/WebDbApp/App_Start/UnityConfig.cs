@@ -1,6 +1,6 @@
 using System;
 using Microsoft.Practices.Unity;
-using StudentsCore;
+using StudentCore;
 
 namespace WebDbApp
 {
