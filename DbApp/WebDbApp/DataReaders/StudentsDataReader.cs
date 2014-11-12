@@ -1,7 +1,9 @@
 ﻿using System.Data.Entity;
 using System.Linq;
+using StudentCore;
+using WebDbApp.Entities;
 
-namespace StudentCore
+namespace WebDbApp.DataReaders
 {
     public class StudentsDataReader
     {
@@ -10,13 +12,6 @@ namespace StudentCore
         public StudentsDataReader(DatabaseContext databaseContext)
         {
             _databaseContext = databaseContext;
-        }
-
-        public StudentEntity Create(StudentEntity entity)
-        {
-            var result = _databaseContext.Students.Add(entity);
-            _databaseContext.SaveChanges();
-            return result;
         }
 
         public IQueryable<StudentEntity> ReadAll()

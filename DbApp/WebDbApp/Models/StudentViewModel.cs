@@ -1,4 +1,4 @@
-﻿namespace StudentCore
+﻿namespace WebDbApp.Models
 {
     public class StudentViewModel
     {

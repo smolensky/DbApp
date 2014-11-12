@@ -43,11 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FacultyDataReader.cs" />
-    <Compile Include="FacultyEntity.cs" />
-    <Compile Include="StudentEntity.cs" />
-    <Compile Include="StudentsDataReader.cs" />
-    <Compile Include="StudentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

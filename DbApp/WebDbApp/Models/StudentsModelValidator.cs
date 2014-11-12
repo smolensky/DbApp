@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using StudentCore;
+using WebDbApp.DataReaders;
+using WebDbApp.Entities;
 
 namespace WebDbApp.Models
 {

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace StudentCore
+namespace WebDbApp.Entities
 {
     [Table("Students")]
     public class StudentEntity

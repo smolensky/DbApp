@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using StudentCore;
+using WebDbApp.DataReaders;
+using WebDbApp.Entities;
 using WebDbApp.Models;
 
 namespace WebDbApp.Controllers
@@ -11,11 +13,13 @@ namespace WebDbApp.Controllers
     {
         private readonly StudentsModelValidator _studentsModelValidator;
         private readonly StudentsDataReader _dataReader;
+        private readonly StudentsDataWriter _dataWriter;
 
-        public HomeController(StudentsModelValidator studentsModelValidator, StudentsDataReader dataReader)
+        public HomeController(StudentsModelValidator studentsModelValidator, StudentsDataReader dataReader, StudentsDataWriter dataWriter)
         {
             _studentsModelValidator = studentsModelValidator;
             _dataReader = dataReader;
+            _dataWriter = dataWriter;
         }
 
 
@@ -42,7 +46,7 @@ namespace WebDbApp.Controllers
                     FacultyId = studentEntity.FacultyId,
                     OveralMark = studentEntity.OveralMark
                 };
-                _dataReader.Create(newEntity);
+                _dataWriter.Create(newEntity);
             }
             else
             {

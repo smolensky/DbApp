@@ -145,10 +145,16 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DataReaders\FacultyDataReader.cs" />
+    <Compile Include="DataReaders\StudentsDataReader.cs" />
+    <Compile Include="DataWriters\StudentsDataWriter.cs" />
+    <Compile Include="Entities\FacultyEntity.cs" />
+    <Compile Include="Entities\StudentEntity.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\StudentsModelValidator.cs" />
+    <Compile Include="Models\StudentViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -177,12 +183,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\StudentCore\StudentsCore.csproj">
-      <Project>{B2536C11-8131-476F-A53B-5C8F6CB883BC}</Project>
-      <Name>StudentsCore</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

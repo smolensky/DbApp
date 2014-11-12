@@ -1,6 +1,7 @@
 ﻿using System.Linq;
+using StudentCore;
 
-namespace StudentCore
+namespace WebDbApp.DataReaders
 {
     public class FacultyDataReader
     {
