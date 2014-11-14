@@ -1,5 +1,5 @@
-﻿@using StudentCore
-@using WebDbApp.Entities
+﻿@using WebDbApp.Models
+@using WebDbApp.ViewReaders
 @model WebDbApp.Entities.StudentEntity
 
 @{
@@ -30,7 +30,7 @@
     </div>
     <div>
         <table style="width:100%;">
-            @foreach (StudentEntity record in ViewBag.Students)
+            @foreach (StudentViewModel record in ViewBag.Students)
             {
                 <tr>
                     <td>@record.FirstName</td>

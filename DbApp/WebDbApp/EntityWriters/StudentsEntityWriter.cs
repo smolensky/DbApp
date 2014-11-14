@@ -1,13 +1,12 @@
-﻿using StudentCore;
 using WebDbApp.Entities;
 
-namespace WebDbApp.DataReaders
+namespace WebDbApp.EntityWriters
 {
-    public class StudentsDataWriter
+    public class StudentsEntityWriter
     {
         private readonly DatabaseContext _databaseContext;
 
-        public StudentsDataWriter(DatabaseContext databaseContext)
+        public StudentsEntityWriter(DatabaseContext databaseContext)
         {
             _databaseContext = databaseContext;
         }

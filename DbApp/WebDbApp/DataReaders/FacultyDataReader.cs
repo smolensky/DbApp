@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using StudentCore;
+using WebDbApp.EntityReaders;
 
 namespace WebDbApp.DataReaders
 {

@@ -1,7 +1,6 @@
 using System;
 using Microsoft.Practices.Unity;
-using StudentCore;
-using WebDbApp.DataReaders;
+using WebDbApp.EntityReaders;
 
 namespace WebDbApp
 {
@@ -37,7 +36,7 @@ namespace WebDbApp
             // container.LoadConfiguration();
 
             // TODO: Register your types here
-            container.RegisterType<StudentsDataReader>();
+            container.RegisterType<StudentsEntityReader>();
         }
     }
 }

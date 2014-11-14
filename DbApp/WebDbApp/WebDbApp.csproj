@@ -146,8 +146,12 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DataReaders\FacultyDataReader.cs" />
-    <Compile Include="DataReaders\StudentsDataReader.cs" />
-    <Compile Include="DataWriters\StudentsDataWriter.cs" />
+    <Compile Include="DatabaseContext.cs" />
+    <Compile Include="EntityReaders\StudentsEntityReader.cs" />
+    <Compile Include="EntityWriters\StudentsEntityWriter.cs" />
+    <Compile Include="Mapper.cs" />
+    <Compile Include="ViewWriters\StudentsViewWriter.cs" />
+    <Compile Include="ViewReaders\StudentsViewReader.cs" />
     <Compile Include="Entities\FacultyEntity.cs" />
     <Compile Include="Entities\StudentEntity.cs" />
     <Compile Include="Global.asax.cs">

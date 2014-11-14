@@ -15,27 +15,27 @@ namespace WebDbApp.Models
             _facultyDataReader = facultyDataReader;
         }
 
-        public bool ContainValidData(StudentEntity studentsEntity, out List<string> invalidProperties)
+        public bool ContainValidData(StudentViewModel model, out List<string> invalidProperties)
         {
             invalidProperties = new List<string>();
 
-            if (string.IsNullOrEmpty(studentsEntity.FirstName))
+            if (string.IsNullOrEmpty(model.FirstName))
             {
                 invalidProperties.Add("FirstName");
             }
 
-            if (string.IsNullOrEmpty(studentsEntity.SecondName))
+            if (string.IsNullOrEmpty(model.SecondName))
             {
                 invalidProperties.Add("SecondName");
             }
 
-            var faculty = _facultyDataReader.ReadAll().FirstOrDefault(s => s.FacultyId == studentsEntity.FacultyId);
+            var faculty = _facultyDataReader.ReadAll().FirstOrDefault(s => s.FacultyId == model.FacultyId);
             if (faculty == null)
             {
                 invalidProperties.Add("FacultyId");
             }
 
-            if (studentsEntity.OveralMark >= 100)
+            if (model.OveralMark >= 100)
             {
                 invalidProperties.Add("OveralMark");
             }

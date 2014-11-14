@@ -2,51 +2,53 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using StudentCore;
-using WebDbApp.DataReaders;
-using WebDbApp.Entities;
+using WebDbApp.EntityReaders;
 using WebDbApp.Models;
+using WebDbApp.ViewReaders;
+using WebDbApp.ViewWriters;
 
 namespace WebDbApp.Controllers
 {
     public class HomeController : Controller
     {
         private readonly StudentsModelValidator _studentsModelValidator;
-        private readonly StudentsDataReader _dataReader;
-        private readonly StudentsDataWriter _dataWriter;
+        private readonly StudentsViewReader _viewReader;
+        private readonly StudentsViewWriter _viewWriter;
 
-        public HomeController(StudentsModelValidator studentsModelValidator, StudentsDataReader dataReader, StudentsDataWriter dataWriter)
+        public HomeController(StudentsModelValidator studentsModelValidator, 
+                                StudentsViewReader viewReader, 
+                                StudentsViewWriter viewWriter)
         {
             _studentsModelValidator = studentsModelValidator;
-            _dataReader = dataReader;
-            _dataWriter = dataWriter;
+            _viewReader = viewReader;
+            _viewWriter = viewWriter;
         }
 
 
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.Students = _dataReader.ReadAll().ToArray();
+            ViewBag.Students = _viewReader.ReadAll();
 
             return View();
         }
 
         [HttpPost]
-        public ActionResult Index(StudentEntity studentEntity)
+        public ActionResult Index(StudentViewModel model)
         {
             List<string> invalidProperties;
-            var isValid = _studentsModelValidator.ContainValidData(studentEntity, out invalidProperties);
+            var isValid = _studentsModelValidator.ContainValidData(model, out invalidProperties);
 
             if (isValid)
             {
-                var newEntity = new StudentEntity
+                var newModel = new StudentViewModel
                 {
-                    FirstName = studentEntity.FirstName,
-                    SecondName = studentEntity.SecondName,
-                    FacultyId = studentEntity.FacultyId,
-                    OveralMark = studentEntity.OveralMark
+                    FirstName = model.FirstName,
+                    SecondName = model.SecondName,
+                    FacultyId = model.FacultyId,
+                    OveralMark = model.OveralMark
                 };
-                _dataWriter.Create(newEntity);
+                _viewWriter.Create(newModel);
             }
             else
             {
@@ -71,7 +73,7 @@ namespace WebDbApp.Controllers
                 throw new ArgumentException(msg);
             }
 
-            ViewBag.Students = _dataReader.ReadAll().ToArray();
+            ViewBag.Students = _viewReader.ReadAll().ToArray();
 
             return View();
         }
