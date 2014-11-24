@@ -2,26 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using WebDbApp.EntityReaders;
+using WebDbApp.Abstractions;
 using WebDbApp.Models;
-using WebDbApp.ViewReaders;
-using WebDbApp.ViewWriters;
 
 namespace WebDbApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly StudentsModelValidator _studentsModelValidator;
-        private readonly StudentsViewReader _viewReader;
-        private readonly StudentsViewWriter _viewWriter;
+        private readonly IStudentsModelValidator _studentsModelValidator;
+        private readonly IStudentsViewReader _viewReader;
+        private readonly IStudentsViewWriter _viewWriter;
+        private readonly string _appVersion;
 
-        public HomeController(StudentsModelValidator studentsModelValidator, 
-                                StudentsViewReader viewReader, 
-                                StudentsViewWriter viewWriter)
+        public HomeController(IStudentsModelValidator studentsModelValidator, 
+                                IStudentsViewReader viewReader, 
+                                IStudentsViewWriter viewWriter,
+                                string appVersion)
         {
             _studentsModelValidator = studentsModelValidator;
             _viewReader = viewReader;
             _viewWriter = viewWriter;
+            _appVersion = appVersion;
         }
 
 
@@ -29,6 +30,8 @@ namespace WebDbApp.Controllers
         public ActionResult Index()
         {
             ViewBag.Students = _viewReader.ReadAll();
+
+            ViewBag.Version = _appVersion;
 
             return View();
         }
@@ -43,7 +46,7 @@ namespace WebDbApp.Controllers
             {
                 var newModel = new StudentViewModel
                 {
-                    FirstName = model.FirstName,
+                    FirstName = model.FirstName + _appVersion,
                     SecondName = model.SecondName,
                     FacultyId = model.FacultyId,
                     OveralMark = model.OveralMark
@@ -74,6 +77,7 @@ namespace WebDbApp.Controllers
             }
 
             ViewBag.Students = _viewReader.ReadAll().ToArray();
+            ViewBag.Version = _appVersion;
 
             return View();
         }

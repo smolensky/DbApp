@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using AutoMapper;
+using Microsoft.Practices.Unity;
+using WebAppData.Entities;
+using WebDbApp.Models;
 
 namespace WebDbApp
 {
@@ -16,9 +16,24 @@ namespace WebDbApp
         {
             AreaRegistration.RegisterAllAreas();
 
+            Mapper.Initialize(x => x.AddProfile<StudentProfile>());
+
+            Bootstrapper.Initialise();
+
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+        }
+    }
+
+    public class StudentProfile : Profile
+    {
+        protected override void Configure()
+        {
+            CreateMap<StudentViewModel, StudentEntity>();
+            CreateMap<StudentEntity, StudentViewModel>();
+
+            Mapper.AssertConfigurationIsValid();
         }
     }
 }

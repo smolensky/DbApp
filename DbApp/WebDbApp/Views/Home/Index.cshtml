@@ -1,6 +1,7 @@
-﻿@using WebDbApp.Models
-@using WebDbApp.ViewReaders
-@model WebDbApp.Entities.StudentEntity
+﻿@using System.Configuration
+@using System.Web.Mvc.Html
+@using WebDbApp.Models
+@model StudentViewModel
 
 @{
     Layout = null;
@@ -18,14 +19,15 @@
         @using (Html.BeginForm())
         {
             <label>Input first name</label>
-            @Html.TextBoxFor(x => x.FirstName)<br/>
+            @Html.TextBoxFor(x => x.FirstName)<br />
             <label>Input second name</label>
-            @Html.TextBoxFor(x => x.SecondName)<br/>
+            @Html.TextBoxFor(x => x.SecondName)<br />
             <label>Input faculty</label>
-            @Html.TextBoxFor(x => x.FacultyId)<br/>
+            @Html.TextBoxFor(x => x.FacultyId)<br />
             <label>Input overal mark</label>
-            @Html.TextBoxFor(x => x.OveralMark)<br/>
-            <input type="submit" value="Save" />
+            @Html.TextBoxFor(x => x.OveralMark)<br />
+            <input type="submit" value="Save" /><br />
+            <p>Version is: @ViewBag.Version</p>
         }
     </div>
     <div>
@@ -41,6 +43,5 @@
             }
         </table>
     </div>
-
 </body>
 </html>

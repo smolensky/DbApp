@@ -1,11 +1,14 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using WebDbApp.EntityReaders;
+using System.IO;
+using AutoMapper;
+using WebAppData.Entities;
+using WebAppData.EntityReaders;
+using WebDbApp.Abstractions;
 using WebDbApp.Models;
 
 namespace WebDbApp.ViewReaders
 {
-    public class StudentsViewReader
+    public class StudentsViewReader : IStudentsViewReader
     {
         private readonly StudentsEntityReader _studentsEntityReader;
 
@@ -16,9 +19,14 @@ namespace WebDbApp.ViewReaders
 
         public IEnumerable<StudentViewModel> ReadAll()
         {
-            var entities = _studentsEntityReader.ReadAll().ToList(); //TODO: remove this because of possibility of null reference exception
+            var entities = _studentsEntityReader.ReadAll();
 
-            var result = entities.Select(Mapper.Map);
+            if (entities == null)
+            {
+                throw new InvalidDataException("You recieved no data from database.");
+            }
+
+            var result = Mapper.Map<IEnumerable<StudentEntity>, IEnumerable<StudentViewModel>>(entities);
 
             return result;
         }

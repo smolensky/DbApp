@@ -1,16 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using StudentCore;
-using WebDbApp.DataReaders;
-using WebDbApp.Entities;
+using WebAppData.EntityReaders;
+using WebDbApp.Abstractions;
 
 namespace WebDbApp.Models
 {
-    public class StudentsModelValidator
+    public class StudentsModelValidator : IStudentsModelValidator
     {
-        private readonly FacultyDataReader _facultyDataReader;
+        private readonly FacultyEntityReader _facultyDataReader;
 
-        public StudentsModelValidator(FacultyDataReader facultyDataReader)
+        public StudentsModelValidator(FacultyEntityReader facultyDataReader)
         {
             _facultyDataReader = facultyDataReader;
         }
